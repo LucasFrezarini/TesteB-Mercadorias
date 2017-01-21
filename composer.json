@@ -1,0 +1,12 @@
+{
+    "name": "vendor/teste-mercadorias",
+    "authors": [
+        {
+            "name": "Lucas Frezarini",
+            "email": "lucas.frezarini@gmail.com"
+        }
+    ],
+    "require": {
+        
+    }
+}
