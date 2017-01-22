@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/controller/mercadorias-controller.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/model/mercadoria.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/mercadorias/controller/mercadorias-controller.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/mercadorias/model/mercadoria.php');
 $controle = new ControllerMercadorias();
 
 //Essa página pode ser utilizada tanto para alterar quanto para inserir novas negociações
