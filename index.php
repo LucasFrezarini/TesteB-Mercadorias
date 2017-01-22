@@ -84,6 +84,7 @@ $controle = new ControllerMercadorias();
                 </tbody>
             </table>
             <a href="view/view-mercadoria.php" class="btn btn-success btn-novo pull-right"><span class="glyphicon glyphicon-plus-sign"></span>Nova Negociação</a>
+
         </div>
 
         <!-- Modal de confirmação de exclusão -->
@@ -104,7 +105,7 @@ $controle = new ControllerMercadorias();
                 </div>
             </div>
         </div>
-
+        
         <!-- Modal de mensagens -->
         <?php include('./view/modal-msg.php') ?>
     </body>
