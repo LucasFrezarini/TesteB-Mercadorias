@@ -18,10 +18,36 @@ class ControllerMercadorias {
                     . "<td>".$mercadoria['quantidade']."</td>"
                     . "<td>".$mercadoria['preco']."</td>"
                     . "<td>".$this->strNegocio($mercadoria['negocio'])."</td>"
+                    . "<td><button type='button' class='btn btn-default center-block'>Alterar</button></td>"
+                    . "<td><button type='button' class='btn btn-danger center-block'>Excluir</button></td>"
                     . "</tr>";
         }
         
         echo $html;
+    }
+    
+    /**
+     * Insere a mercadoria no banco de dados, com base dos dados recebidos do método POST.
+     * @return bool TRUE caso a operação seja concluída com sucesso e FALSE em caso de falha.
+     */
+    public function insereMercadoria(){
+        $mercadoria = new Mercadoria();
+        $mercadoria->setNome($_POST['nome']);
+        $mercadoria->setTipo($_POST['tipo']);
+        $mercadoria->setPreco($_POST['preco']);
+        $mercadoria->setQuantidade($_POST['qntd']);
+        $mercadoria->setTipoDoNegocio($_POST['op']);
+        
+        return $mercadoria->inserir();
+    }
+    
+    /**
+     * Carrega uma mercadoria por id.
+     * @param int $id O id da mercadoria
+     * @return Mercadoria Uma instância da mercadoria selecionada
+     */
+    public function carregaMercadoriaPorId($id){
+        return Mercadoria::selecionar($id);
     }
     
     /**

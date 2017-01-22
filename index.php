@@ -13,6 +13,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- CDN do Bootstrap JS -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- CSS Customizado -->
+        <link href="view/estilo.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
 
@@ -24,13 +27,14 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
+                    <li><a href="view/inserir-mercadoria.php">Nova Mercadoria</a></li>
                 </ul>
             </div>
         </nav>    
 
         <div class="container">
             <!-- Tabela de mercadorias -->
-            <h2>Lista de Operações</h2>
+            <h2>Lista de Negociações</h2>
             <br/>
             <table class="table table-hover table-bordered">
                 <thead>
@@ -41,6 +45,8 @@
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Operacao</th>
+                        <th>Alterar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
                 <tbody>

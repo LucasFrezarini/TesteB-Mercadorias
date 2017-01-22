@@ -28,6 +28,10 @@ class Mercadoria {
         $this->tipoDoNegocio = 0;
     }
     
+    
+    //-----------Operações do banco de dados--------------
+    
+    
     /**
      * Lista todos os registros de mercadoria no banco de dados.
      * @return array Um array com todas as mercadorias.
@@ -46,6 +50,56 @@ class Mercadoria {
         $con->close();
         
         return $mercadorias;
+    }
+    
+    /**
+     * Seleciona uma determinada mercadoria pelo ID.
+     * @param int $id O id da mercadoria.
+     * @return Mercadoria uma instância da mercadoria selecionada.
+     */
+    public static function selecionar($id){
+        $con = Conector::getConexao(); 
+        $stmt = $con->prepare("SELECT * FROM mercadoria WHERE id = ? LIMIT 1");
+        $stmt->bind_param('i', $id);
+        
+        $stmt->execute();
+        
+        $mercadoria = new Mercadoria();
+        
+        $resultado = $stmt->bind_result($id_col, $tipo, $nome, $qntd, $preco, $op);
+        
+        
+        
+        while($stmt->fetch()){
+            $mercadoria->setId($id_col);
+            $mercadoria->setTipo($tipo);
+            $mercadoria->setNome($nome);
+            $mercadoria->setQuantidade($qntd);
+            $mercadoria->setPreco($preco);
+            $mercadoria->setTipoDoNegocio($op);
+        } 
+        
+        $stmt->close();
+        $con->close();
+        
+        return $mercadoria;
+    }
+    
+    /**
+     * Insere a instância atual da mercadoria no banco de dados.
+     * @return bool True se a operação foi concluída com sucesso e False em caso de falha.
+     */
+    public function inserir(){
+        $con = Conector::getConexao();
+        $stmt = $con->prepare("INSERT INTO mercadoria VALUES (null, ?, ?, ?, ?, ?)"); //O primeiro argumento é null por causa do auto_increment
+        
+        $stmt->bind_param("ssiss",$this->tipo, $this->nome, $this->quantidade, $this->preco, $this->tipoDoNegocio);
+        
+        $resultado = $stmt->execute();
+        $stmt->close();
+        $con->close();
+        
+        return $resultado;
     }
     
     //----Gets e Sets-----
