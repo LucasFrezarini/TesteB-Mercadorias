@@ -1,0 +1,20 @@
+.form-group{
+    margin-bottom: 15px;
+}
+
+.pull-right{
+    margin-right:15px;
+}
+
+th{
+    text-align: center;
+}
+
+.glyphicon{
+    margin-right: 5px;
+    vertical-align: text-top;
+}
+
+.btn-novo{
+    margin-right: 0px;
+}
