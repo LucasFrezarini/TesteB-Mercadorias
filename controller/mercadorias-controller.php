@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/mercadorias/model/mercadoria.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/model/mercadoria.php');
 
 
 class ControllerMercadorias {
